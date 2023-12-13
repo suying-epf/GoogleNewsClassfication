@@ -115,6 +115,30 @@ NLP_analysis/
 | 4)TF-IDF + RidgeClassifier| 0.88     | 0.884     | x |
 | 5)Word2Vec and TensorFlow| 0.83      | 0.829      | 20 |
 | 6)Retrain model with callbacks| 0.83      | 0.829      | 20 |
+| Deeping Learning |  Accuracy (%) | Number of training epochs  |
+| TextCNN model |  0.84 | 20 |
+| TextCNN model(checkpoint,early stopping,LR) |  0.84 | 4  |
+| TextCNN model(checkpoint,early stopping,LR) |  0.84 | 8  |
+| RNN(LSTM,Dropout,(checkpoint,early stopping,LR)) |  0.86 | 5  |
+
+## Best Deeping Learning Model
+_________________________________________________________________
+ |Layer (type)      |          Output Shape        |      Param # |  
+=================================================================
+| embedding_3 (Embedding)    | (None, 100, 64)      |     1583488  | 
+                                                                 
+ |lstm_2 (LSTM)             |  (None, 100, 64)       |    33024    | 
+                                                                 
+ |activation (Activation)   |  (None, 100, 64)       |    0         |
+                                                                 
+ |dropout_1 (Dropout)       |  (None, 100, 64)      |     0         |
+                                                                 
+ |lstm_3 (LSTM)            |   (None, 32)          |      12416     |
+                                                                 
+ |activation_1 (Activation) |  (None, 32)          |      0        | 
+                                                                 
+ |dense_5 (Dense)          |   (None, 8)          |       264      | 
+                                                              
 
 
 **Accessing cleaned data**:
@@ -136,6 +160,12 @@ WordVec is an advanced word vector, and the classification is done by building a
 
 Idea 4: Bert word vector
 Bert is a high end word vector with powerful modelling learning capabilities.
+
+After I do the deeping learning part,the performance isn't get better before.
+So I think that because of the label dosn't well classifer like (headline and worldwide labels)
+
+The solution to augement the accuracy is to redo the labels.
+
 ### *Dataset Credits :*
 
 https://blog.csdn.net/weixin_42691585/article/details/107981604
